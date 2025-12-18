@@ -8,12 +8,11 @@ public class Main {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("sokolov.spring");
-       // MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
 
-        //messagePrinter.printMessage();
+        CounterBean bean1 = context.getBean(CounterBean.class);
+        CounterBean bean2 = context.getBean(CounterBean.class);
 
-        GreetingPrinter greetingPrinter = context.getBean(GreetingPrinter.class);
-        greetingPrinter.printHello();
+        System.out.println(bean1==bean2);
 
     }
 }
