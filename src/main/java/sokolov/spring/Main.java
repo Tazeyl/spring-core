@@ -8,9 +8,12 @@ public class Main {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("sokolov.spring");
-        MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
+       // MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
 
-        messagePrinter.printMessage();
+        //messagePrinter.printMessage();
+
+        GreetingPrinter greetingPrinter = context.getBean(GreetingPrinter.class);
+        greetingPrinter.printHello();
 
     }
 }
