@@ -9,8 +9,15 @@ public class Main {
     public static void main(String[] args) {
 
         ApplicationContext context = SpringApplication.run(Main.class, args);
-        AppConfig config = context.getBean(AppConfig.class);
-        config.printInfo();
+        PaymentService paymentService = context.getBean(PaymentService.class);
+
+        paymentService.processPayment(1500);
+        System.out.println(paymentService.checkStatus());
+
+        // Искусственно вызовем ошибку
+        try {
+            paymentService.processPayment(-500);
+        } catch (Exception ignored) {}
 
     }
 }
