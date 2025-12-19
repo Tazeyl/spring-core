@@ -9,10 +9,11 @@ public class Main {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("sokolov.spring");
 
-        CounterBean bean1 = context.getBean(CounterBean.class);
-        CounterBean bean2 = context.getBean(CounterBean.class);
+        LifecycleBean bean1 = context.getBean(LifecycleBean.class);
+        LifecycleBean bean2 = context.getBean(LifecycleBean.class);
 
         System.out.println(bean1==bean2);
+        context.close();
 
     }
 }
