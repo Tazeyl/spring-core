@@ -1,19 +1,16 @@
 package sokolov.spring;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+@SpringBootApplication
 public class Main {
     public static void main(String[] args) {
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("sokolov.spring");
-
-        LifecycleBean bean1 = context.getBean(LifecycleBean.class);
-        LifecycleBean bean2 = context.getBean(LifecycleBean.class);
-
-        System.out.println(bean1==bean2);
-        context.close();
+        ApplicationContext context = SpringApplication.run(Main.class, args);
+        AppConfig config = context.getBean(AppConfig.class);
+        config.printInfo();
 
     }
 }
